@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block content %}
+
+<form action="{%url 'main:create'%}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>제목 : <input type="text" name="title"></p>
+    <p>작성자 : <input type="text" name="writer"></p>
+    <p>기분 : <input type="text" name="emotion"></p>
+    <p>날씨 : <input type="text" name="weather"></p>
+    <p>사진 : <input type="file" name="image"></p>
+    <p>내용 : <textarea type="text" name="body" id="" cols="30" row="10"></textarea></p>
+    <button type="submit">제출</button>
+</form>
+
+{% endblock %}

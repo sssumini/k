@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>글 수정하기</h1>
+    <form action="{% url 'main:update' blog.id %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <p>제목 : <input type="text" name="title" value="{{blog.title}}"></p>
+        <p>작성자 : <input type="text" name="writer" value="{{blog.writer}}"></p>
+        <p>기분 : <input type="text" name="emotion" value="{{blog.emotion}}"></p>
+        <p>날씨 : <input type="text" name="weather" value="{{blog.weather}}"></p>
+        <p>내용 : <textarea name="body" id="" cols="30" rows="10" >{{blog.body}}</textarea></p>
+        <p>사진 : <input type="file" name="image" value="{{blog.image}}"></p>
+        <button type="submit">제출</button>
+
+    </form>
+    
+</div>
+{% endblock %}
